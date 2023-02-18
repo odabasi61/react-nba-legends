@@ -1,5 +1,7 @@
 import PlayerCardStyle from "./PlayerCard.module.css";
 const PlayerCard = (data) => {
+  const statistics = data.statistics;
+
   return (
     <div className={PlayerCardStyle.card}>
       <div className="image">
@@ -7,22 +9,12 @@ const PlayerCard = (data) => {
       </div>
       <h4>{data.name}</h4>
       <div className={PlayerCardStyle["card-over"]}>
-        <div className={PlayerCardStyle.basket}>
-          <i class="fa-solid fa-basketball"></i>
-          <span>{data.statistics[0]}</span>
-        </div>
-        <div className={PlayerCardStyle.basket}>
-          <i class="fa-solid fa-basketball"></i>
-          <span>{data.statistics[1]}</span>
-        </div>
-        <div className={PlayerCardStyle.basket}>
-          <i class="fa-solid fa-basketball"></i>
-          <span>{data.statistics[2]}</span>
-        </div>
-        <div className={PlayerCardStyle.basket}>
-          <i class="fa-solid fa-basketball"></i>
-          <span>{data.statistics[3]}</span>
-        </div>
+        {statistics.map((statistic, index) => (
+          <div className={PlayerCardStyle.basket} key={index}>
+            <i className="fa-solid fa-basketball"></i>
+            <span>{statistic}</span>
+          </div>
+        ))}
       </div>
     </div>
   );
