@@ -1,6 +1,7 @@
 .container {
   width: 90%;
   height: fit-content;
+  min-height: 80vh;
   margin: 3rem auto;
   border-radius: 1rem;
   display: flex;
