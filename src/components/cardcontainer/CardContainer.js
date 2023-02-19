@@ -14,16 +14,13 @@ const CardContainer = ({ searchQuerry }) => {
       }}
       className={CardContainerStyle.container}
     >
-      {data.map((item, index) => {
-        if (
-          searchQuerry.trim() !== "" &&
-          item.name.toLowerCase().startsWith(searchQuerry.toLowerCase())
-        ) {
+      {data
+        .filter((player) => {
+          return player.name.toLowerCase().includes(searchQuerry.toLowerCase());
+        })
+        .map((item, index) => {
           return <PlayerCard {...item} key={index} />;
-        } else if (searchQuerry.trim() === "") {
-          return <PlayerCard {...item} key={index} />;
-        }
-      })}
+        })}
     </div>
   );
 };
