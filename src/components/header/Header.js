@@ -1,13 +1,18 @@
 import HeaderStyle from "./Header.module.css";
 import lg from "../../assets/lg.png";
 
-const Header = () => {
+const Header = ({ searchQuerry, setSearchQuerry }) => {
   return (
     <div className={HeaderStyle.header}>
       <img src={lg} alt="" />
       <h1>NBA Legends</h1>
       <form>
-        <input type="text" placeholder="Search player..." />
+        <input
+          onChange={(e) => setSearchQuerry(e.target.value)}
+          value={searchQuerry}
+          type="text"
+          placeholder="Search player..."
+        />
       </form>
     </div>
   );
