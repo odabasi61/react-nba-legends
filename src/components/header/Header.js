@@ -10,7 +10,7 @@ const Header = ({ searchQuerry, setSearchQuerry }) => {
         <input
           onChange={(e) => setSearchQuerry(e.target.value)}
           value={searchQuerry}
-          type="text"
+          type="search"
           placeholder="Search player..."
         />
       </form>
